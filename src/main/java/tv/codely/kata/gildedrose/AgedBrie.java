@@ -3,7 +3,7 @@ package tv.codely.kata.gildedrose;
 final public class AgedBrie extends BaseItem {
 
     public AgedBrie(Item item) {
-        super(item.name, item.sellIn, item.quality);
+        super(item);
     }
 
     @Override
@@ -13,6 +13,6 @@ final public class AgedBrie extends BaseItem {
     }
 
     private void updateAgedBrie() {
-        super.quality++;
+        super.item.quality++;
     }
 }

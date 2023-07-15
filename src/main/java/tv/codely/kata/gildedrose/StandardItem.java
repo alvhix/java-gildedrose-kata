@@ -2,7 +2,7 @@ package tv.codely.kata.gildedrose;
 
 final public class StandardItem extends BaseItem {
     public StandardItem(Item item) {
-        super(item.name, item.sellIn, item.quality);
+        super(item);
     }
 
     @Override
@@ -13,14 +13,14 @@ final public class StandardItem extends BaseItem {
     }
 
     private void decreaseQuality() {
-        if (super.sellIn <= MINIMUM_VALUE) {
-            super.quality -= 2;
+        if (super.item.sellIn <= MINIMUM_VALUE) {
+            super.item.quality -= 2;
         } else {
-            super.quality--;
+            super.item.quality--;
         }
     }
 
     private void decreaseSellIn() {
-        super.sellIn--;
+        super.item.sellIn--;
     }
 }

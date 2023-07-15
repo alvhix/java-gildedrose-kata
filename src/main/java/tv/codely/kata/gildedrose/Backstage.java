@@ -5,7 +5,7 @@ final public class Backstage extends BaseItem {
     private final static Integer MAXIMUM_SELLIN_DAYS = 10;
 
     public Backstage(Item item) {
-        super(item.name, item.sellIn, item.quality);
+        super(item);
     }
 
     @Override
@@ -15,14 +15,14 @@ final public class Backstage extends BaseItem {
     }
 
     private void updateBackstage() {
-        if (super.sellIn <= MINIMUM_VALUE) {
-            super.quality = MINIMUM_VALUE;
-        } else if (super.sellIn <= MIDDLE_SELLIN_DAYS) {
-            super.quality += 3;
-        } else if (super.sellIn <= MAXIMUM_SELLIN_DAYS) {
-            super.quality += 2;
+        if (super.item.sellIn <= MINIMUM_VALUE) {
+            super.item.quality = MINIMUM_VALUE;
+        } else if (super.item.sellIn <= MIDDLE_SELLIN_DAYS) {
+            super.item.quality += 3;
+        } else if (super.item.sellIn <= MAXIMUM_SELLIN_DAYS) {
+            super.item.quality += 2;
         } else {
-            super.quality++;
+            super.item.quality++;
         }
     }
 }
