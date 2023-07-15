@@ -8,11 +8,7 @@ final public class AgedBrie extends BaseItem {
 
     @Override
     public void update() {
-        this.updateAgedBrie();
+        super.incrementQuality(1);
         super.validateQuality();
-    }
-
-    private void updateAgedBrie() {
-        super.item.quality++;
     }
 }

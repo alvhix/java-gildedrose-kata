@@ -11,7 +11,7 @@ public class GildedRoseShould {
     @Test
     public void testThatSellInValueIsDecreased() {
         Item whateverItem = new Item("whatever", 10, 0);
-        BaseItem whateverBaseItem = BaseItemFactory.getItem(whateverItem);
+        BaseItem whateverBaseItem = BaseItemFactory.getBaseItem(whateverItem);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(whateverBaseItem));
         gildedRose.updateQuality();
@@ -22,7 +22,7 @@ public class GildedRoseShould {
     @Test
     public void testThatQualityValueIsDecreased() {
         Item whateverItem = new Item("whatever", 1, 10);
-        BaseItem whateverBaseItem = BaseItemFactory.getItem(whateverItem);
+        BaseItem whateverBaseItem = BaseItemFactory.getBaseItem(whateverItem);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(whateverBaseItem));
         gildedRose.updateQuality();
@@ -33,7 +33,7 @@ public class GildedRoseShould {
     @Test
     public void testThatQualityDecreasesTwiceAsMuchWhenSellByIsPassed() {
         Item whateverItem = new Item("whatever", 0, 10);
-        BaseItem whateverBaseItem = BaseItemFactory.getItem(whateverItem);
+        BaseItem whateverBaseItem = BaseItemFactory.getBaseItem(whateverItem);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(whateverBaseItem));
         gildedRose.updateQuality();
@@ -44,7 +44,7 @@ public class GildedRoseShould {
     @Test
     public void testThatQualityIsNeverNegative() {
         Item whateverItem = new Item("whatever", 0, 0);
-        BaseItem whateverBaseItem = BaseItemFactory.getItem(whateverItem);
+        BaseItem whateverBaseItem = BaseItemFactory.getBaseItem(whateverItem);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(whateverBaseItem));
         gildedRose.updateQuality();
@@ -55,7 +55,7 @@ public class GildedRoseShould {
     @Test
     public void testAgedBrieIncreasesQualityWithAge() {
         Item agedBrie = new Item("Aged Brie", 5, 1);
-        BaseItem agedBrieBaseItem = BaseItemFactory.getItem(agedBrie);
+        BaseItem agedBrieBaseItem = BaseItemFactory.getBaseItem(agedBrie);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(agedBrieBaseItem));
         gildedRose.updateQuality();
@@ -66,7 +66,7 @@ public class GildedRoseShould {
     @Test
     public void testQualityNeverIncreasesPastFifty() {
         Item agedBrie = new Item("Aged Brie", 5, 50);
-        BaseItem agedBrieBaseItem = BaseItemFactory.getItem(agedBrie);
+        BaseItem agedBrieBaseItem = BaseItemFactory.getBaseItem(agedBrie);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(agedBrieBaseItem));
         gildedRose.updateQuality();
@@ -77,7 +77,7 @@ public class GildedRoseShould {
     @Test
     public void testSulfurasNeverChanges() {
         Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 25);
-        BaseItem sulfurasBaseItem = BaseItemFactory.getItem(sulfuras);
+        BaseItem sulfurasBaseItem = BaseItemFactory.getBaseItem(sulfuras);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(sulfurasBaseItem));
         gildedRose.updateQuality();
@@ -89,7 +89,7 @@ public class GildedRoseShould {
     @Test
     public void testBackstagePassIncreasesQualityByOneIfSellByGreaterThenTen() {
         Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20);
-        BaseItem backstageBaseItem = BaseItemFactory.getItem(backstagePasses);
+        BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
         gildedRose.updateQuality();
@@ -100,7 +100,7 @@ public class GildedRoseShould {
     @Test
     public void testBackstagePassIncreasesQualityByTwoIfSellBySmallerThanTen() {
         Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 6, 20);
-        BaseItem backstageBaseItem = BaseItemFactory.getItem(backstagePasses);
+        BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
         gildedRose.updateQuality();
@@ -111,7 +111,7 @@ public class GildedRoseShould {
     @Test
     public void testBackstagePassIncreasesQualityByThreeIfSellBySmallerThanFive() {
         Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20);
-        BaseItem backstageBaseItem = BaseItemFactory.getItem(backstagePasses);
+        BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
         gildedRose.updateQuality();
@@ -122,7 +122,7 @@ public class GildedRoseShould {
     @Test
     public void testBackstagePassLosesValueAfterSellByPasses() {
         Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20);
-        BaseItem backstageBaseItem = BaseItemFactory.getItem(backstagePasses);
+        BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
         gildedRose.updateQuality();

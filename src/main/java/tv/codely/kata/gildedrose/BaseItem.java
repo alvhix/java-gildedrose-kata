@@ -11,6 +11,10 @@ public abstract class BaseItem extends Item {
         this.item = item;
     }
 
+    protected int getSellIn() {
+        return item.sellIn;
+    }
+
     protected void validateQuality() {
         if (item.quality < MINIMUM_VALUE) {
             item.quality = MINIMUM_VALUE;
@@ -21,5 +25,23 @@ public abstract class BaseItem extends Item {
         }
     }
 
-    public abstract void update();
+    protected void incrementQuality(int times) {
+        item.quality += times;
+    }
+
+
+    protected void decrementQuality(int times) {
+        item.quality -= times;
+    }
+
+    protected void decrementSellIn() {
+        item.sellIn--;
+    }
+
+    protected void setMinimumQuality() {
+        item.quality = MINIMUM_VALUE;
+    }
+
+
+    protected abstract void update();
 }

@@ -10,19 +10,16 @@ final public class Backstage extends BaseItem {
 
     @Override
     public void update() {
-        this.updateBackstage();
-        super.validateQuality();
-    }
-
-    private void updateBackstage() {
-        if (super.item.sellIn <= MINIMUM_VALUE) {
-            super.item.quality = MINIMUM_VALUE;
-        } else if (super.item.sellIn <= MIDDLE_SELLIN_DAYS) {
-            super.item.quality += 3;
-        } else if (super.item.sellIn <= MAXIMUM_SELLIN_DAYS) {
-            super.item.quality += 2;
+        if (super.getSellIn() <= MINIMUM_VALUE) {
+            super.setMinimumQuality();
+        } else if (super.getSellIn() <= MIDDLE_SELLIN_DAYS) {
+            super.incrementQuality(3);
+        } else if (super.getSellIn() <= MAXIMUM_SELLIN_DAYS) {
+            super.incrementQuality(2);
         } else {
-            super.item.quality++;
+            super.incrementQuality(1);
         }
+
+        super.validateQuality();
     }
 }

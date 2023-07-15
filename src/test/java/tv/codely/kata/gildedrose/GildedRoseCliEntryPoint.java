@@ -16,7 +16,7 @@ public class GildedRoseCliEntryPoint {
                 // this conjured item does not work properly yet
                 new Item("Conjured Mana Cake", 3, 6)};
 
-        GildedRose app = new GildedRose(BaseItemFactory.getItems(items));
+        GildedRose app = new GildedRose(BaseItemFactory.getBaseItems(items));
 
         int days = 2;
         if (args.length > 0) {
