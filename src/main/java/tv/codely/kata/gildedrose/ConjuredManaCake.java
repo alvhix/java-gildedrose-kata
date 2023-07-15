@@ -8,5 +8,6 @@ public class ConjuredManaCake extends BaseItem {
     @Override
     protected void updateQuality() {
         super.decrementQuality(2);
+        super.validateQuality();
     }
 }
