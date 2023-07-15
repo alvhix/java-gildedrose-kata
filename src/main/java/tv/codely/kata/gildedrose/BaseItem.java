@@ -1,13 +1,12 @@
 package tv.codely.kata.gildedrose;
 
-public abstract class BaseItem extends Item {
+public abstract class BaseItem {
     protected final static Integer MINIMUM_VALUE = 0;
     protected final static Integer MAXIMUM_VALUE = 50;
 
     protected final Item item;
 
     public BaseItem(Item item) {
-        super(item.name, item.sellIn, item.quality);
         this.item = item;
     }
 
@@ -16,13 +15,8 @@ public abstract class BaseItem extends Item {
     }
 
     protected void validateQuality() {
-        if (item.quality < MINIMUM_VALUE) {
-            item.quality = MINIMUM_VALUE;
-        }
-
-        if (item.quality > MAXIMUM_VALUE) {
-            item.quality = MAXIMUM_VALUE;
-        }
+        if (item.quality < MINIMUM_VALUE) this.setMinimumQuality();
+        if (item.quality > MAXIMUM_VALUE) this.setMaximumQuality();
     }
 
     protected void incrementQuality(int times) {
@@ -42,6 +36,9 @@ public abstract class BaseItem extends Item {
         item.quality = MINIMUM_VALUE;
     }
 
+    protected void setMaximumQuality() {
+        item.quality = MAXIMUM_VALUE;
+    }
 
     protected abstract void update();
 }

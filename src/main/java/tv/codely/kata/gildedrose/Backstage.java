@@ -1,6 +1,7 @@
 package tv.codely.kata.gildedrose;
 
 final public class Backstage extends BaseItem {
+    private final static Integer MINIMUM_SELLIN_DAYS = 0;
     private final static Integer MIDDLE_SELLIN_DAYS = 5;
     private final static Integer MAXIMUM_SELLIN_DAYS = 10;
 
@@ -10,7 +11,7 @@ final public class Backstage extends BaseItem {
 
     @Override
     public void update() {
-        if (super.getSellIn() <= MINIMUM_VALUE) {
+        if (super.getSellIn() <= MINIMUM_SELLIN_DAYS) {
             super.setMinimumQuality();
         } else if (super.getSellIn() <= MIDDLE_SELLIN_DAYS) {
             super.incrementQuality(3);
