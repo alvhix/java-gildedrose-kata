@@ -6,8 +6,9 @@ import java.util.stream.Collectors;
 
 final public class BaseItemFactory {
     private final static String AGED_BRIE = "Aged Brie";
-    private final static String BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
+    private final static String BACKSTAGE_CONCERT = "BackstageConcert passes to a TAFKAL80ETC concert";
     private final static String SULFURAS = "Sulfuras, Hand of Ragnaros";
+    private final static String CONJURED_MANA_CAKE = "Conjured Mana Cake";
 
 
     /**
@@ -20,10 +21,12 @@ final public class BaseItemFactory {
         switch (item.name) {
             case AGED_BRIE:
                 return new AgedBrie(item);
-            case BACKSTAGE:
-                return new Backstage(item);
+            case BACKSTAGE_CONCERT:
+                return new BackstageConcert(item);
             case SULFURAS:
                 return new Sulfuras(item);
+            case CONJURED_MANA_CAKE:
+                return new ConjuredManaCake(item);
         }
         return new StandardItem(item);
     }

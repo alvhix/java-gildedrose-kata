@@ -7,7 +7,12 @@ final public class Sulfuras extends BaseItem {
     }
 
     @Override
-    public void update() {
+    public void updateQuality() {
+        return;
+    }
+
+    @Override
+    public void updateSellIn() {
         return;
     }
 }

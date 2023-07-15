@@ -10,6 +10,17 @@ public abstract class BaseItem {
         this.item = item;
     }
 
+    public void update() {
+        updateQuality();
+        updateSellIn();
+    }
+
+    protected abstract void updateQuality();
+
+    protected void updateSellIn() {
+        item.sellIn--;
+    }
+
     protected int getSellIn() {
         return item.sellIn;
     }
@@ -23,13 +34,8 @@ public abstract class BaseItem {
         item.quality += times;
     }
 
-
     protected void decrementQuality(int times) {
         item.quality -= times;
-    }
-
-    protected void decrementSellIn() {
-        item.sellIn--;
     }
 
     protected void setMinimumQuality() {
@@ -39,6 +45,4 @@ public abstract class BaseItem {
     protected void setMaximumQuality() {
         item.quality = MAXIMUM_VALUE;
     }
-
-    protected abstract void update();
 }

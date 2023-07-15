@@ -10,7 +10,7 @@ class GildedRose {
         this.items = items;
     }
 
-    public void updateQuality() {
+    public void update() {
         items.forEach(BaseItem::update);
     }
 }

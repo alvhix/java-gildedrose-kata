@@ -6,9 +6,8 @@ final public class StandardItem extends BaseItem {
     }
 
     @Override
-    public void update() {
+    public void updateQuality() {
         super.decrementQuality(super.getSellIn() <= MINIMUM_VALUE ? 2 : 1);
-        super.decrementSellIn();
         super.validateQuality();
     }
 }

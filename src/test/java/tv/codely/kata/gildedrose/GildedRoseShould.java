@@ -14,7 +14,7 @@ public class GildedRoseShould {
         BaseItem whateverBaseItem = BaseItemFactory.getBaseItem(whateverItem);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(whateverBaseItem));
-        gildedRose.updateQuality();
+        gildedRose.update();
 
         assertEquals(whateverItem.sellIn, 9);
     }
@@ -25,7 +25,7 @@ public class GildedRoseShould {
         BaseItem whateverBaseItem = BaseItemFactory.getBaseItem(whateverItem);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(whateverBaseItem));
-        gildedRose.updateQuality();
+        gildedRose.update();
 
         assertEquals(whateverItem.quality, 9);
     }
@@ -36,7 +36,7 @@ public class GildedRoseShould {
         BaseItem whateverBaseItem = BaseItemFactory.getBaseItem(whateverItem);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(whateverBaseItem));
-        gildedRose.updateQuality();
+        gildedRose.update();
 
         assertEquals(whateverItem.quality, 8);
     }
@@ -47,7 +47,7 @@ public class GildedRoseShould {
         BaseItem whateverBaseItem = BaseItemFactory.getBaseItem(whateverItem);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(whateverBaseItem));
-        gildedRose.updateQuality();
+        gildedRose.update();
 
         assertEquals(whateverItem.quality, 0);
     }
@@ -58,7 +58,7 @@ public class GildedRoseShould {
         BaseItem agedBrieBaseItem = BaseItemFactory.getBaseItem(agedBrie);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(agedBrieBaseItem));
-        gildedRose.updateQuality();
+        gildedRose.update();
 
         assertEquals(agedBrie.quality, 2);
     }
@@ -69,7 +69,7 @@ public class GildedRoseShould {
         BaseItem agedBrieBaseItem = BaseItemFactory.getBaseItem(agedBrie);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(agedBrieBaseItem));
-        gildedRose.updateQuality();
+        gildedRose.update();
 
         assertEquals(agedBrie.quality, 50);
     }
@@ -80,7 +80,7 @@ public class GildedRoseShould {
         BaseItem sulfurasBaseItem = BaseItemFactory.getBaseItem(sulfuras);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(sulfurasBaseItem));
-        gildedRose.updateQuality();
+        gildedRose.update();
 
         assertEquals(sulfuras.quality, 25);
         assertEquals(sulfuras.sellIn, 0);
@@ -88,45 +88,56 @@ public class GildedRoseShould {
 
     @Test
     public void testBackstagePassIncreasesQualityByOneIfSellByGreaterThenTen() {
-        Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20);
+        Item backstagePasses = new Item("BackstageConcert passes to a TAFKAL80ETC concert", 11, 20);
         BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
-        gildedRose.updateQuality();
+        gildedRose.update();
 
         assertEquals(backstagePasses.quality, 21);
     }
 
     @Test
     public void testBackstagePassIncreasesQualityByTwoIfSellBySmallerThanTen() {
-        Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 6, 20);
+        Item backstagePasses = new Item("BackstageConcert passes to a TAFKAL80ETC concert", 6, 20);
         BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
-        gildedRose.updateQuality();
+        gildedRose.update();
 
         assertEquals(backstagePasses.quality, 22);
     }
 
     @Test
     public void testBackstagePassIncreasesQualityByThreeIfSellBySmallerThanFive() {
-        Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20);
+        Item backstagePasses = new Item("BackstageConcert passes to a TAFKAL80ETC concert", 5, 20);
         BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
-        gildedRose.updateQuality();
+        gildedRose.update();
 
         assertEquals(backstagePasses.quality, 23);
     }
 
     @Test
     public void testBackstagePassLosesValueAfterSellByPasses() {
-        Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20);
+        Item backstagePasses = new Item("BackstageConcert passes to a TAFKAL80ETC concert", 0, 20);
         BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
-        gildedRose.updateQuality();
+        gildedRose.update();
 
         assertEquals(backstagePasses.quality, 0);
+    }
+
+    @Test
+    public void testConjuredManaCakeLosesValue() {
+        Item backstagePasses = new Item("Conjured Mana Cake", 0, 20);
+        BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
+
+        GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
+        gildedRose.update();
+
+        assertEquals(backstagePasses.quality, 18);
     }
 }
