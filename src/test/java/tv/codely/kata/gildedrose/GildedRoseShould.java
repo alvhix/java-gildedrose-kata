@@ -132,12 +132,34 @@ public class GildedRoseShould {
 
     @Test
     public void testConjuredManaCakeLosesValue() {
-        Item backstagePasses = new Item("Conjured Mana Cake", 0, 20);
+        Item backstagePasses = new Item("Conjured Mana Cake", 5, 20);
         BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
 
         GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
         gildedRose.update();
 
         assertEquals(backstagePasses.quality, 18);
+    }
+
+    @Test
+    public void testThatConjuredManaCakeQualityIsNeverNegative() {
+        Item backstagePasses = new Item("Conjured Mana Cake", 0, 0);
+        BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
+
+        GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
+        gildedRose.update();
+
+        assertEquals(backstagePasses.quality, 0);
+    }
+
+    @Test
+    public void testThatConjuredManaCakeQualityDecreasesTwiceFasterAfterSellIn() {
+        Item backstagePasses = new Item("Conjured Mana Cake", 0, 20);
+        BaseItem backstageBaseItem = BaseItemFactory.getBaseItem(backstagePasses);
+
+        GildedRose gildedRose = new GildedRose(Collections.singletonList(backstageBaseItem));
+        gildedRose.update();
+
+        assertEquals(backstagePasses.quality, 16);
     }
 }

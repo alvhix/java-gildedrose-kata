@@ -7,7 +7,7 @@ public class ConjuredManaCake extends BaseItem {
 
     @Override
     protected void updateQuality() {
-        super.decrementQuality(2);
+        super.decrementQuality(super.getSellIn() <= MINIMUM_VALUE ? 4 : 2);
         super.validateQuality();
     }
 }
