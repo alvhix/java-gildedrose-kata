@@ -1,13 +1,15 @@
 package tv.codely.kata.gildedrose;
 
-public class ConjuredManaCake extends BaseItem {
-    public ConjuredManaCake(Item item) {
-        super(item);
+public class ConjuredManaCake implements UpdateItem {
+    private final BaseItem item;
+
+    public ConjuredManaCake(BaseItem item) {
+        this.item = item;
     }
 
-    @Override
-    protected void updateQuality() {
-        super.decrementQuality(super.getSellIn() <= MINIMUM_VALUE ? 4 : 2);
-        super.validateQuality();
+    public void update() {
+        this.item.decrementQuality(this.item.getSellIn() <= this.item.MINIMUM_VALUE ? 4 : 2);
+        this.item.decrementSellIn();
+        this.item.validateQuality();
     }
 }

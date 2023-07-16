@@ -1,14 +1,16 @@
 package tv.codely.kata.gildedrose;
 
-final public class AgedBrie extends BaseItem {
+final public class AgedBrie implements UpdateItem {
 
-    public AgedBrie(Item item) {
-        super(item);
+    private final BaseItem item;
+
+    public AgedBrie(BaseItem item) {
+        this.item = item;
     }
 
-    @Override
-    public void updateQuality() {
-        super.incrementQuality(1);
-        super.validateQuality();
+    public void update() {
+        this.item.incrementQuality(1);
+        this.item.decrementSellIn();
+        this.item.validateQuality();
     }
 }

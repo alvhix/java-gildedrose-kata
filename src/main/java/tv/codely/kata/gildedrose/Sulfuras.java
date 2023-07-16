@@ -1,18 +1,11 @@
 package tv.codely.kata.gildedrose;
 
-final public class Sulfuras extends BaseItem {
+final public class Sulfuras implements UpdateItem {
 
-    public Sulfuras(Item item) {
-        super(item);
+    public Sulfuras(BaseItem item) {
     }
 
-    @Override
-    public void updateQuality() {
-        return;
-    }
-
-    @Override
-    public void updateSellIn() {
+    public void update() {
         return;
     }
 }

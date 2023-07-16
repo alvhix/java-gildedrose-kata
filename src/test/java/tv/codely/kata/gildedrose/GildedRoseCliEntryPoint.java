@@ -1,5 +1,9 @@
 package tv.codely.kata.gildedrose;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class GildedRoseCliEntryPoint {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
@@ -15,7 +19,11 @@ public class GildedRoseCliEntryPoint {
                 new Item("BackstageConcert passes to a TAFKAL80ETC concert", 5, 49),
                 new Item("Conjured Mana Cake", 3, 6)};
 
-        GildedRose app = new GildedRose(BaseItemFactory.getBaseItems(items));
+        List<BaseItem> baseItemList = Arrays.stream(items)
+                .map(BaseItem::new)
+                .collect(Collectors.toList());
+
+        GildedRose app = new GildedRose(baseItemList);
 
         int days = 2;
         if (args.length > 0) {
